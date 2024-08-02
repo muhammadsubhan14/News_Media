@@ -1,4 +1,4 @@
-const { User , News} = require("../models");
+const { User, News } = require("../models");
 const { compare } = require("../helpers/bcrypt");
 const { signToken } = require("../helpers/jwt");
 const { Op } = require("sequelize");
@@ -78,7 +78,7 @@ module.exports = class Controller {
       res.status(500).json({ message: error.message });
     }
   }
-  
+
   static async getNewsById(req, res) {
     try {
       const { id } = req.params;
@@ -95,7 +95,7 @@ module.exports = class Controller {
       const article = await News.create({
         name,
         imageUrl,
-        content
+        content,
       });
       res.status(201).json({ article });
     } catch (error) {
@@ -107,7 +107,18 @@ module.exports = class Controller {
     try {
       const { id } = req.params;
       const article = await News.destroy({ where: { id } });
-      res.status(200).json({ article, "message": "delete success" });
+      res.status(200).json({ article, message: "delete success" });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
+  //public
+
+  static async pubNews(req, res) {
+    try {
+      const article = await News.findAll();
+      res.status(200).json({ article });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
