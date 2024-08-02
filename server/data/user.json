@@ -1,0 +1,20 @@
+[
+  {
+    "name": "nicola tesla",
+    "telp": "123456789",
+    "email": "hans@mail.com",
+    "password": "hans"
+  },
+  {
+    "name": "leo messi",
+    "telp": "9999999999",
+    "email": "han@mail.com",
+    "password": "han"
+  },
+  {
+    "name": "jay jay okocha",
+    "telp": "",
+    "email": "hanstu@mail.com",
+    "password": "hanstu"
+  }
+]
