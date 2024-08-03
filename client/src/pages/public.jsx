@@ -38,7 +38,7 @@ export default function Public() {
         loader={<h4>Loading...</h4>}
         endMessage={<p>No more data to load</p>}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mr-6 ml-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {Array.isArray(data) ? (
             data.map((item, idx) => (
               <Card

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Card({ name, imageUrl, content }) {
   return (
-    <div className="card-container flex flex-col rounded-xl bg-white shadow-md w-80">
+    <div className="card-container flex flex-col rounded-xl bg-white shadow-md max-w-full w-80">
       <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
         <img src={imageUrl} alt={name} className="object-cover h-full w-full" />
       </div>
