@@ -5,6 +5,8 @@ import Register from "./pages/register";
 import Layout from "./pages/layout";
 import News from "./pages/news";
 import { redirect } from "react-router-dom";
+import NewsId from "./pages/newsId";
+import Profile from "./pages/profile";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
         path: "/news",
         element: <News />,
       },
+      {
+        path: "/news/:id",
+        element: <NewsId />,
+      },
+      {
+        path: "/profile/:id",
+        element: <Profile/>,
+      }
     ],
   }
 ]);

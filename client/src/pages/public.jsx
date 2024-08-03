@@ -5,26 +5,26 @@ import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Public() {
-  const [data, setData] = useState([]); 
-  const [hasMore, setHasMore] = useState(true); 
+  const [data, setData] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
-  
   const fetchDataPub = async (pageNumber) => {
     try {
-      const res = await axios.get(`http://localhost:3000/pub/news?page=${pageNumber}`);
+      const res = await axios.get(
+        `http://localhost:3000/pub/news?page=${pageNumber}`
+      );
       if (res.data.article.length === 0) {
-        setHasMore(false); 
+        setHasMore(false);
       } else {
-        setData((prevData) => [...prevData, ...res.data.article]); 
-        setPage(pageNumber + 1); 
+        setData((prevData) => [...prevData, ...res.data.article]);
+        setPage(pageNumber + 1);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  
   useEffect(() => {
     fetchDataPub(page);
   }, []);
@@ -38,11 +38,11 @@ export default function Public() {
         loader={<h4>Loading...</h4>}
         endMessage={<p>No more data to load</p>}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mr-6 ml-8">
           {Array.isArray(data) ? (
-            data.map((item) => (
+            data.map((item, idx) => (
               <Card
-                key={item.id}
+                key={idx}
                 name={item.name}
                 imageUrl={item.imageUrl}
                 content={item.content}

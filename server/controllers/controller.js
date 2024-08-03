@@ -54,16 +54,19 @@ module.exports = class Controller {
         email: user.email,
       };
       const access_token = signToken(payload);
-      res.status(200).json({ access_token });
+      res.status(200).json({ id: user.id, access_token });
     } catch (error) {
       console.log(error.name);
       res.status(500).json({ message: error.message });
     }
   }
-  static async getAllUser(req, res) {
+ 
+
+  static async userById(req, res) {
     try {
-      const users = await User.findAll();
-      res.status(200).json({ users });
+      const { id } = req.params;
+      const user = await User.findByPk(id);
+      res.status(200).json({ user });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

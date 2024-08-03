@@ -17,7 +17,9 @@ export default function Login() {
         loginData
       );
       // console.log(data, "<<data>>");
-      localStorage.setItem("access_token", data.token);
+      localStorage.setItem("access_token", data.access_token);
+      localStorage.setItem("id", data.id);
+
       navigate("/news");
     } catch (error) {
       console.log("Error:", error.message);
